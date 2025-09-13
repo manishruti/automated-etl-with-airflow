@@ -1,0 +1,44 @@
+[2025-09-13T08:58:11.090+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2025-09-13T08:58:11.098+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: nasa_apod_postgress.load_data_to_postgresql manual__2025-09-13T08:58:06.794383+00:00 [queued]>
+[2025-09-13T08:58:11.102+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: nasa_apod_postgress.load_data_to_postgresql manual__2025-09-13T08:58:06.794383+00:00 [queued]>
+[2025-09-13T08:58:11.102+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 1
+[2025-09-13T08:58:11.114+0000] {taskinstance.py:2330} INFO - Executing <Task(_PythonDecoratedOperator): load_data_to_postgresql> on 2025-09-13 08:58:06.794383+00:00
+[2025-09-13T08:58:11.117+0000] {standard_task_runner.py:63} INFO - Started process 97319 to run task
+[2025-09-13T08:58:11.119+0000] {standard_task_runner.py:90} INFO - Running: ['airflow', 'tasks', 'run', 'nasa_apod_postgress', 'load_data_to_postgresql', 'manual__2025-09-13T08:58:06.794383+00:00', '--job-id', '17', '--raw', '--subdir', 'DAGS_FOLDER/etlpipeline.py', '--cfg-path', '/tmp/tmpgwr6cb36']
+[2025-09-13T08:58:11.120+0000] {standard_task_runner.py:91} INFO - Job 17: Subtask load_data_to_postgresql
+[2025-09-13T08:58:11.147+0000] {task_command.py:426} INFO - Running <TaskInstance: nasa_apod_postgress.load_data_to_postgresql manual__2025-09-13T08:58:06.794383+00:00 [running]> on host codespaces-4a882f
+[2025-09-13T08:58:11.192+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='airflow' AIRFLOW_CTX_DAG_ID='nasa_apod_postgress' AIRFLOW_CTX_TASK_ID='load_data_to_postgresql' AIRFLOW_CTX_EXECUTION_DATE='2025-09-13T08:58:06.794383+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-09-13T08:58:06.794383+00:00'
+[2025-09-13T08:58:11.193+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2025-09-13T08:58:11.193+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2025-09-13T08:58:11.194+0000] {taskinstance.py:2905} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/usr/local/python/3.12.1/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 465, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/python/3.12.1/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 432, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/python/3.12.1/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 400, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/python/3.12.1/lib/python3.12/site-packages/airflow/decorators/base.py", line 265, in execute
+    return_value = super().execute(context)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/python/3.12.1/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 400, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/python/3.12.1/lib/python3.12/site-packages/airflow/operators/python.py", line 235, in execute
+    return_value = self.execute_callable()
+                   ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/python/3.12.1/lib/python3.12/site-packages/airflow/operators/python.py", line 252, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/automated-etl-with-airflow/.airflow/dags/etlpipeline.py", line 80, in load_data_to_postgresql
+    apod_data['title'],
+    ~~~~~~~~~^^^^^^^^^
+TypeError: '_TaskDecorator' object is not subscriptable
+[2025-09-13T08:58:11.197+0000] {taskinstance.py:1206} INFO - Marking task as FAILED. dag_id=nasa_apod_postgress, task_id=load_data_to_postgresql, run_id=manual__2025-09-13T08:58:06.794383+00:00, execution_date=20250913T085806, start_date=20250913T085811, end_date=20250913T085811
+[2025-09-13T08:58:11.206+0000] {standard_task_runner.py:110} ERROR - Failed to execute job 17 for task load_data_to_postgresql ('_TaskDecorator' object is not subscriptable; 97319)
+[2025-09-13T08:58:11.251+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 1
+[2025-09-13T08:58:11.260+0000] {taskinstance.py:3498} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-09-13T08:58:11.260+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

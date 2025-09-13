@@ -1,0 +1,20 @@
+[2025-09-13T10:17:01.421+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2025-09-13T10:17:01.433+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: nasa_apod_postgress.extract_data_apod manual__2025-09-13T10:16:56.943298+00:00 [queued]>
+[2025-09-13T10:17:01.438+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: nasa_apod_postgress.extract_data_apod manual__2025-09-13T10:16:56.943298+00:00 [queued]>
+[2025-09-13T10:17:01.438+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 1
+[2025-09-13T10:17:01.450+0000] {taskinstance.py:2330} INFO - Executing <Task(SimpleHttpOperator): extract_data_apod> on 2025-09-13 10:16:56.943298+00:00
+[2025-09-13T10:17:01.453+0000] {standard_task_runner.py:63} INFO - Started process 134138 to run task
+[2025-09-13T10:17:01.455+0000] {standard_task_runner.py:90} INFO - Running: ['airflow', 'tasks', 'run', 'nasa_apod_postgress', 'extract_data_apod', 'manual__2025-09-13T10:16:56.943298+00:00', '--job-id', '29', '--raw', '--subdir', 'DAGS_FOLDER/etlpipeline.py', '--cfg-path', '/tmp/tmpe3g0v48e']
+[2025-09-13T10:17:01.456+0000] {standard_task_runner.py:91} INFO - Job 29: Subtask extract_data_apod
+[2025-09-13T10:17:01.479+0000] {task_command.py:426} INFO - Running <TaskInstance: nasa_apod_postgress.extract_data_apod manual__2025-09-13T10:16:56.943298+00:00 [running]> on host codespaces-4a882f
+[2025-09-13T10:17:01.531+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='airflow' AIRFLOW_CTX_DAG_ID='nasa_apod_postgress' AIRFLOW_CTX_TASK_ID='extract_data_apod' AIRFLOW_CTX_EXECUTION_DATE='2025-09-13T10:16:56.943298+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-09-13T10:16:56.943298+00:00'
+[2025-09-13T10:17:01.532+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2025-09-13T10:17:01.532+0000] {http.py:169} INFO - Calling HTTP method
+[2025-09-13T10:17:01.534+0000] {base.py:84} INFO - Using connection ID 'nasa_api' for task execution.
+[2025-09-13T10:17:01.552+0000] {base.py:84} INFO - Using connection ID 'nasa_api' for task execution.
+[2025-09-13T10:17:02.734+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2025-09-13T10:17:02.746+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=nasa_apod_postgress, task_id=extract_data_apod, run_id=manual__2025-09-13T10:16:56.943298+00:00, execution_date=20250913T101656, start_date=20250913T101701, end_date=20250913T101702
+[2025-09-13T10:17:02.790+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 0
+[2025-09-13T10:17:02.803+0000] {logging_mixin.py:188} WARNING - /usr/local/python/3.12.1/lib/python3.12/site-packages/airflow/models/baseoperator.py:1296 AirflowProviderDeprecationWarning: Call to deprecated class SimpleHttpOperator. (Class `SimpleHttpOperator` is deprecated and will be removed in a future release. Please use `HttpOperator` instead.)
+[2025-09-13T10:17:02.817+0000] {taskinstance.py:3498} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2025-09-13T10:17:02.820+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
